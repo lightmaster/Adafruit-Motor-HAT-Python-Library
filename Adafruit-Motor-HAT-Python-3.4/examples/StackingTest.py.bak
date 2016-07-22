@@ -54,15 +54,15 @@ while (True):
 	for i in range(3):
 		if not stepperThreads[i].isAlive():
 			randomdir = random.randint(0, 1)
-			print(("Stepper %d" % i), end=' ')
+			print("Stepper %d" % i),
 			if (randomdir == 0):
         	                dir = Adafruit_MotorHAT.FORWARD
-	                        print(("forward"), end=' ')
+	                        print("forward"),
 			else:
 	                        dir = Adafruit_MotorHAT.BACKWARD
-				print(("backward"), end=' ')
+				print("backward"),
 			randomsteps = random.randint(10,50)
-			print(("%d steps" % randomsteps))
+			print("%d steps" % randomsteps)
 			stepperThreads[i] = threading.Thread(target=stepper_worker, args=(steppers[i], randomsteps, dir, stepstyles[random.randint(0,len(stepstyles)-1)],))
 			stepperThreads[i].start()
 
